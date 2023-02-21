@@ -243,9 +243,9 @@ public class NullCheck implements Flow.Analysis {
 
     private TransferFunction transferfn = new TransferFunction ();
     public void processQuad(Quad q) {
-        transferfn.val.copy(out[q.getID()]);
+        transferfn.val.copy(in[q.getID()]);
         transferfn.visitQuad(q);
-        in[q.getID()].copy(transferfn.val);
+        out[q.getID()].copy(transferfn.val);
     }
 
     /* The QuadVisitor that actually does the computation */
