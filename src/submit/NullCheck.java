@@ -229,6 +229,7 @@ public class NullCheck implements Flow.Analysis {
         return result;
     }
     public void setIn(Quad q, Flow.DataflowObject value) {
+        System.out.println("In being set to: " + value.toString());
         in[q.getID()].copy(value);
     }
     public void setOut(Quad q, Flow.DataflowObject value) {
