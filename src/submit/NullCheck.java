@@ -178,6 +178,15 @@ public class NullCheck implements Flow.Analysis {
 
         while (qit.hasNext()) {
             Quad q = qit.next();
+            int id = q.getID();
+            
+            System.out.println("" + id + " in: " + in[id].toString());
+            System.out.println("out: " + out[id].toString());
+        }
+        qit = new QuadIterator(cfg);
+
+        while (qit.hasNext()) {
+            Quad q = qit.next();
             Operator op = q.getOperator();
             int id = q.getID();
 
