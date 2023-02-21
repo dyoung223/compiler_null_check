@@ -235,7 +235,9 @@ public class NullCheck implements Flow.Analysis {
         out[q.getID()].copy(value);
     }
     public Flow.DataflowObject newTempVar() {
-        return new MyDataflowObject();
+        MyDataflowObject temp = new MyDataflowObject();
+        temp.setToTop();
+        return temp;
     }
 
     private TransferFunction transferfn = new TransferFunction ();

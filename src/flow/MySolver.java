@@ -40,8 +40,12 @@ public class MySolver implements Flow.Solver {
         if (direction) temp.meetWith(analysis.getOut(P));
         else temp.meetWith(analysis.getIn(P));
       } else {
+        //TO REMOVE LATER
+        System.out.println("Meeting with entry");
+        System.out.println(temp.toString());
         if (direction) temp.meetWith(analysis.getEntry());
         else temp.meetWith(analysis.getExit());
+        System.out.println(temp.toString());
       }
     }
     return temp;
