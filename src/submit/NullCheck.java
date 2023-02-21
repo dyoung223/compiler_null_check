@@ -153,13 +153,7 @@ public class NullCheck implements Flow.Analysis {
         }
 
         entry.setToBottom();
-        //DEBUG to remove ////////////////////////////////////////////////////////////
-        qit = new QuadIterator(cfg);
-        while (qit.hasNext()) {
-            Quad q = qit.next();
-            System.out.println(q);
-        }
-        //////////////////////////////////////////////////////////////////
+
     }
 
     /**
@@ -174,26 +168,22 @@ public class NullCheck implements Flow.Analysis {
     public void postprocess (ControlFlowGraph cfg) {
         System.out.print(cfg.getMethod().getName().toString());
         QuadIterator qit = new QuadIterator(cfg);
-        System.out.println("QID: " + "entry" + " out: " + entry.toString());
+
         while (qit.hasNext()) {
             Quad q = qit.next();
             Operator op = q.getOperator();
             int id = q.getID();
-            System.out.println("QID: " + id + " in: " + in[id].toString());
-            System.out.println("Out: " + out[id].toString());
+
             
             if (!(op instanceof Operator.NullCheck)){
                 continue;
             }
             if (in[id].set.contains(Operator.NullCheck.getSrc(q).toString()) ) {
-                //System.out.print(" " + id);
-                System.out.print("QID: " + id);
-                System.out.print("Register: " + Operator.NullCheck.getSrc(q).toString());
-                
+                System.out.print(" " + id);
+
             }
+            System.out.println("");
         }
-        System.out.println("QID: " + "exit" + " out: " + exit.toString());
-        System.out.println("");
     }
 
     /**
@@ -229,7 +219,6 @@ public class NullCheck implements Flow.Analysis {
         return result;
     }
     public void setIn(Quad q, Flow.DataflowObject value) {
-        System.out.println("QID " + q.getID() + ", In being set to: " + value.toString());
         in[q.getID()].copy(value);
     }
     public void setOut(Quad q, Flow.DataflowObject value) {
