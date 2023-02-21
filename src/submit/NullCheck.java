@@ -153,6 +153,13 @@ public class NullCheck implements Flow.Analysis {
         }
 
         entry.setToBottom();
+        //DEBUG to remove ////////////////////////////////////////////////////////////
+        qit = new QuadIterator(cfg);
+        while (qit.hasNext()) {
+            Quad q = qit.next();
+            System.out.println(q);
+        }
+        //////////////////////////////////////////////////////////////////
     }
 
     /**
@@ -175,7 +182,9 @@ public class NullCheck implements Flow.Analysis {
             }
             int id = q.getID();
             if (in[id].set.contains(Operator.NullCheck.getSrc(q).toString()) ) {
-                System.out.print(" " + id);
+                //System.out.print(" " + id);
+                System.out.print("QID: " + id);
+                System.out.print("Register: " + Operator.NullCheck.getSrc(q).toString());
             }
         }
         System.out.println("");
@@ -247,8 +256,8 @@ public class NullCheck implements Flow.Analysis {
                 return;
             }
 
-            for (RegisterOperand use : q.getDefinedRegisters()) {
-                val.killVar(use.getRegister().toString());
+            for (RegisterOperand def : q.getDefinedRegisters()) {
+                val.killVar(def.getRegister().toString());
             }
         }
     }
