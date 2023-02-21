@@ -198,7 +198,7 @@ public class NullCheck implements Flow.Analysis {
             }
 
             for (RegisterOperand use : q.getUsedRegisters()) {
-                if (in[id].set.contains(use.toString()) ) {
+                if (in[id].set.contains(use.getRegister().toString()) ) {
                     System.out.print(" " + id);
                 }
             }
