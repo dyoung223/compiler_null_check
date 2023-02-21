@@ -259,9 +259,9 @@ public class NullCheck implements Flow.Analysis {
         MyDataflowObject val;
         @Override
         public void visitNullCheck (Quad q) {
-            String src = Operator.NullCheck.getReg1(q).toString();
-            System.out.println("src reg: " + src);
-            val.genVar(src);
+            for (RegisterOperand use : q.getUsedRegisters()) {
+                val.genVar(use.getRegister().toString());
+            }
         }
 
         @Override
