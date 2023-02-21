@@ -39,7 +39,7 @@ public class MySolver implements Flow.Solver {
       if (P != null) {
         System.out.println(P.getID());
         System.out.println(temp.toString());
-        System.out.println(analysis.getOut(P).toString())
+        System.out.println(analysis.getOut(P).toString());
         if (direction) temp.meetWith(analysis.getOut(P));
         else temp.meetWith(analysis.getIn(P));
         System.out.println(temp.toString());
