@@ -177,15 +177,15 @@ public class NullCheck implements Flow.Analysis {
     public void postprocess (ControlFlowGraph cfg) {
         System.out.print(cfg.getMethod().getName().toString());
         QuadIterator qit = new QuadIterator(cfg);
-/* 
+        /*
         while (qit.hasNext()) {
             Quad q = qit.next();
             int id = q.getID();
             
             System.out.println("" + id + " in: " + in[id].toString());
             System.out.println("out: " + out[id].toString());
-        }
-        qit = new QuadIterator(cfg);*/
+        }*/
+        //qit = new QuadIterator(cfg);
 
         while (qit.hasNext()) {
             Quad q = qit.next();
@@ -196,10 +196,11 @@ public class NullCheck implements Flow.Analysis {
             if (!(op instanceof Operator.NullCheck)){
                 continue;
             }
-            if (in[id].set.contains(Operator.NullCheck.getSrc(q).toString()) ) {
-                
-                System.out.print(" " + id);
 
+            for (RegisterOperand use : q.getUsedRegisters()) {
+                if (in[id].set.contains(use.toString()) ) {
+                    System.out.print(" " + id);
+                }
             }
         }
         System.out.println("");
