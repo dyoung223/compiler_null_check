@@ -5,6 +5,7 @@ import flow.MySolver;
 import joeq.Class.jq_Class;
 import joeq.Main.Helper;
 
+
 public class FindRedundantNullChecks {
 
   /*
@@ -16,11 +17,11 @@ public class FindRedundantNullChecks {
     MySolver solver = new MySolver();
     Flow.Analysis analysis;
     try{
-      Object analysis_obj = Class.forName("NullCheck").newInstance();
+      Object analysis_obj = Class.forName("submit.NullCheck").newInstance();
       analysis = (Flow.Analysis) analysis_obj;
     }
     catch (Exception ex) {
-      System.out.println("ERROR: Could not load class NullCheck as Analysis: " + ex.toString());
+      System.out.println("ERROR: Could not load class submit.NullCheck as Analysis: " + ex.toString());
       return;
     }
     solver.registerAnalysis(analysis);
