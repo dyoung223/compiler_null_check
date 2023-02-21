@@ -182,8 +182,8 @@ public class NullCheck implements Flow.Analysis {
                 System.out.print(" " + id);
 
             }
-            System.out.println("");
         }
+        System.out.println("");
     }
 
     /**
