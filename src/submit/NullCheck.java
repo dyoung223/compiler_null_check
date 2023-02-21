@@ -151,7 +151,15 @@ public class NullCheck implements Flow.Analysis {
             in[id].setToTop();
             out[id].setToTop();
         }
-
+        qit = new QuadIterator(cfg);
+        while (qit.hasNext()) {
+            //qit.next()
+            //int id = qit.next().getID();
+            System.out.println(  qit.next());
+            System.out.println("QID " + qit.getID());
+            //in[id].setToTop();
+            //out[id].setToTop();
+        }
         entry.setToBottom();
 
     }
@@ -179,6 +187,7 @@ public class NullCheck implements Flow.Analysis {
                 continue;
             }
             if (in[id].set.contains(Operator.NullCheck.getSrc(q).toString()) ) {
+                
                 System.out.print(" " + id);
 
             }
