@@ -7,10 +7,6 @@ import joeq.Compiler.Quad.Operand.*;
 import flow.*;
 
 
-/**
- * Skeleton class for implementing a faint variable analysis
- * using the Flow.Analysis interface.
- */
 public class NullCheck implements Flow.Analysis {
     
 
@@ -19,7 +15,7 @@ public class NullCheck implements Flow.Analysis {
      * You are free to change this class or move it to another file.
      */
     public static class MyDataflowObject implements Flow.DataflowObject {
-        private Set<String> set;
+        protected Set<String> set;
         public static Set<String> universalSet;
         /**
          * Methods from the Flow.DataflowObject interface.
@@ -89,7 +85,7 @@ public class NullCheck implements Flow.Analysis {
      * You are free to modify these fields, just make sure to
      * preserve the data printed by postprocess(), which relies on these.
      */
-    private MyDataflowObject[] in, out;
+    protected MyDataflowObject[] in, out;
     private MyDataflowObject entry, exit;
 
     /**
