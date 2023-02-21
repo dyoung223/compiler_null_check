@@ -151,6 +151,7 @@ public class NullCheck implements Flow.Analysis {
             in[id].setToTop();
             out[id].setToTop();
         }
+        /*
         qit = new QuadIterator(cfg);
         while (qit.hasNext()) {
             //qit.next()
@@ -159,6 +160,7 @@ public class NullCheck implements Flow.Analysis {
             //in[id].setToTop();
             //out[id].setToTop();
         }
+        */
         entry.setToBottom();
 
     }
@@ -175,7 +177,7 @@ public class NullCheck implements Flow.Analysis {
     public void postprocess (ControlFlowGraph cfg) {
         System.out.print(cfg.getMethod().getName().toString());
         QuadIterator qit = new QuadIterator(cfg);
-
+/* 
         while (qit.hasNext()) {
             Quad q = qit.next();
             int id = q.getID();
@@ -183,7 +185,7 @@ public class NullCheck implements Flow.Analysis {
             System.out.println("" + id + " in: " + in[id].toString());
             System.out.println("out: " + out[id].toString());
         }
-        qit = new QuadIterator(cfg);
+        qit = new QuadIterator(cfg);*/
 
         while (qit.hasNext()) {
             Quad q = qit.next();

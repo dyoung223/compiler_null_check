@@ -37,12 +37,8 @@ public class MySolver implements Flow.Solver {
     while (quads.hasNext()) {
       Quad P = quads.next();
       if (P != null) {
-        System.out.println(P.getID());
-        System.out.println(temp.toString());
-        System.out.println(analysis.getOut(P).toString());
         if (direction) temp.meetWith(analysis.getOut(P));
         else temp.meetWith(analysis.getIn(P));
-        System.out.println(temp.toString());
       } else {
         if (direction) temp.meetWith(analysis.getEntry());
         else temp.meetWith(analysis.getExit());
