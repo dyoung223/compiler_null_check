@@ -156,7 +156,6 @@ public class NullCheck implements Flow.Analysis {
             //qit.next()
             //int id = qit.next().getID();
             System.out.println(  qit.next());
-            System.out.println("QID " + qit.getID());
             //in[id].setToTop();
             //out[id].setToTop();
         }
