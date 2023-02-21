@@ -5,7 +5,7 @@ import java.util.*;
 import joeq.Compiler.Quad.*;
 import joeq.Compiler.Quad.Operand.*;
 import flow.*;
-i
+
 
 /**
  * Skeleton class for implementing a faint variable analysis
