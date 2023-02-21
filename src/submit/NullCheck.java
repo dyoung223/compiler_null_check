@@ -5,6 +5,7 @@ import java.util.*;
 import joeq.Compiler.Quad.*;
 import joeq.Compiler.Quad.Operand.*;
 import flow.*;
+i
 
 /**
  * Skeleton class for implementing a faint variable analysis
@@ -197,8 +198,7 @@ public class NullCheck implements Flow.Analysis {
                 }
             }
         }
-
-        nullchecks.sort(null);
+        Collections.sort(nullchecks);
         for(int i = 0; i < nullchecks.size(); i++){
             System.out.print(" " + nullchecks.get(i));
         }
